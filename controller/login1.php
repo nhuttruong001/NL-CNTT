@@ -113,8 +113,8 @@
 	            	$_SESSION['password'] =  $password;
 	            	$_SESSION['quyen'] =1;
 	            	$_SESSION['kh_ma'] = $row11['KH_MA'];
-	           		header("Location: fromNLCS.php");
-	                echo "<meta http-equiv='refresh' content='1;url=./fromNLCS.php'>";
+	           		header("Location: ../pages/index.php");
+	                echo "<meta http-equiv='refresh' content='1;url=../pages/index.php'>";
 
 	                echo "dang nhap thanh cong";
 
@@ -125,7 +125,7 @@
 	            	$_SESSION['quyen']=0 ;
 	            	$_SESSION['kh_ma'] = $row11['KH_MA'];
 
-           		    header("Location: fromNLCS.php");
+           		    header("Location: ../pages/index.php");
            			echo "dang nhap thanhh cong";
             } else {
 	            	echo "dang nhap that bai";

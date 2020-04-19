@@ -9,13 +9,13 @@
 
 <head>
  <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
     <script type="text/javascript" src="js/popper.min.js"></script>
      <script type="text/javascript" src="js/jquery.js"></script>
      <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.js"></script>
      
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="generalFormat.css">
+        <link rel="stylesheet" href="../public/css/generalFormat.css">
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -78,10 +78,10 @@
                 <div class="collapse navbar-collapse d-flex flex-row-reverse custom" id="navbarNav" style="position: absolute;left:170px;">
                     <ul class="navbar-nav ">
                         <li class="nav-item ">
-                            <a class="nav-link mr-2 ml-2 " href="fromNLCS.php" ><strong> TRANG CHỦ</strong> <span class="sr-only">(current)</span></a>
+                            <a class="nav-link mr-2 ml-2 " href="../pages/index.php" ><strong> TRANG CHỦ</strong> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mr-1 ml-1" href="huongdanmuahang.php" ><strong>HƯỚNG DẪN MUA HÀNG</strong> </a>
+                            <a class="nav-link mr-1 ml-1" href="../pages/huongdanmuahang.php" ><strong>HƯỚNG DẪN MUA HÀNG</strong> </a>
                         </li>
 
                           <li class="nav-item mr-2 ml-2">
@@ -99,7 +99,7 @@
 
                         <li class="nav-item mr-2 ml-2 ">
                            <span style="color: red;"> <?php if(isset($_SESSION["shoppingCart"])) echo count($_SESSION["shoppingCart"]); else echo "0"?></span>
-                          <a href="viewCart.php"><h1 class="fas fa-shopping-cart" style="width: 40px; height: 50px; position: absolute;top:0px;"></h1> </a> 
+                          <a href="../pages/viewCart.php"><h1 class="fas fa-shopping-cart" style="width: 40px; height: 50px; position: absolute;top:0px;"></h1> </a> 
                         </li>
                       
                         </ul>
@@ -143,7 +143,7 @@
                              <?php 
                                 if(isset($_SESSION['quyen'])){
                                      if($_SESSION['quyen']==1) {
-                                        echo '<a href="homeQuantri.php" class="dropdown-item">Quản trị</a>'; 
+                                        echo '<a href="../pages/homeQuantri.php" class="dropdown-item">Quản trị</a>'; 
                                       } 
                                 }
                                ?>     
@@ -153,7 +153,7 @@
 
                     
 
-                        <a href="fromDangky.php"><button type="button" class="btn btn-primary">Đăng ký</button><span class="sr-only">(current)</span></a>
+                        <a href="../pages/fromDangky.php"><button type="button" class="btn btn-primary">Đăng ký</button><span class="sr-only">(current)</span></a>
                    </div>
              
         </div>
@@ -196,7 +196,7 @@
                             echo  "
                                         <div class='col-md-3 mb-3' style='margin-top:75px; margin-left:220px;'>
                                         <div class='card' style='width: 100% '>
-                                        <img src='img1/".$row["IMAGE"]."' class='card-img-top' alt='Card image cap' width='450px' height='350px' >
+                                        <img src='../public/image/".$row["IMAGE"]."' class='card-img-top' alt='Card image cap' width='450px' height='350px' >
                                           <div class='card-body'>
                                            <h5 class='card-title'>".$row["MONAN_TEN"]."&nbsp;&nbsp;&nbsp;&nbsp; Giá:".$row["MONAN_GIA"]."</h5> 
                                                <p class='card-text'>".$row["MONAN_DIENGIAI"]."</p>        

@@ -6,7 +6,7 @@
 			loai_ma='".$_POST['loai']."',monan_gia='".$_POST['giamonan']."',
 			monan_diengiai='".$_POST['diengiaimonan']."',image='". $_FILES["image"]["name"]."' where monan_ma='".$_POST['monan_ma']."';";
 
-		$target_dir = "img1/";
+		$target_dir = "../public/image";
 			$target_file = $target_dir . basename($_FILES["image"]["name"]);
 			$uploadOk = 1;
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -37,10 +37,10 @@
 
 	if($query){
 		echo "cập nhật món ăn thành công";
-		echo "<meta http-equiv='refresh' content='2;url=./capnhatHome1.php'>";
+		echo "<meta http-equiv='refresh' content='2;url=../pages/capnhatHome1.php'>";
 	}else
 	{
 		echo "cập nhật món ăn thất bại";
-			echo "<meta http-equiv='refresh' content='2;url=./formcapnhatMONAN.php'>";
+			echo "<meta http-equiv='refresh' content='2;url=../pages/formcapnhatMONAN.php'>";
 	}
 ?>

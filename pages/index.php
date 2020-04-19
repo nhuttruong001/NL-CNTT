@@ -9,18 +9,12 @@
 
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
- <!-- <link rel="stylesheet" type="text/css" href="/bootstrap/css/reset.css"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"> -->
-    <!-- <script type="text/javascript" src="bootstrap/js/popper.min.js"></script> -->
-   <!--  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/esm/popper.min.js"></script>
-     <script type="text/javascript" src="bootstrap/js/jquery.js"></script>
-     <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.js"></script> -->
-     
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
         <link rel="stylesheet" href="generalFormat.css">
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" href="../public/css/chatbot.css">
+
 
     <style>
         .custom{
@@ -72,6 +66,46 @@
 
     <header style="border-bottom: 1px solid #ffa500">
         <div class="container">
+          <!-- CHATBOT -->
+          <div class="chatbot-circle"><i class="fas fa-sms"></i></div>
+    <div class="chatbot-box">
+        <div id="getting">Nhấn Vào để Bắt Đầu</div>
+        <div class="chatbot-head">
+            <div class="avatar">
+                <span class="icon"><img src="{{asset('chatbot.png')}}" width="30" height="30" alt="Avatar Chatbot"></span>
+                <span class="name-chatbot">ChatBot News</span>
+                <span class="status"></span>
+            </div>
+            <span class="close"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="chatbot-body" id="chat-body">
+            <div style="margin-top:15px;"></div>
+            <!-- {{-- Section Messages --}}
+            {{-- <div class="res-bot">
+                <div class="block-icon">
+                    <div class="res-avatar"><i class="fas fa-comment-alt"></i></div>
+                </div>
+                <div class="block-messages" style="35%">
+                    <div class="res-messages"><span>Nguyen Nhut Truong</span> </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="res-u">
+                <div class="block-messages-u">
+                    <div class="res-messages-u"><span>Nguyen Nhut Truong</span> </div>
+                </div>
+            </div>
+            <div style="clear:both;" class="bottom"></div> --}}
+            {{-- =================================================== --}}
+
+            {{-- End Section Messages --}} -->
+        </div>
+        <div class="chatbot-footer">
+            <input type="text" placeholder="Type a message..." class="type-message">
+            <button class="submit-chatbot" ><img src="{{asset('send.png')}}" alt="Icon Send" srcset=""></button>
+        </div>
+    </div>
+          <!-- END CHATBOT -->
             <nav class="navbar navbar-expand-lg navbar-light nhut-truong-navibar d-flex flex-row-reverse">
                 <a class="navbar-brand" href="#"><img src="../public/image/logo.png" class="nhut-truong-img"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,9 +146,15 @@
                 </div>
 
             </nav>
+
+                    
                                    
                     <div class="nav-item" style="position: fixed;z-index:100; right: 0px; top: 2px;">   
-                                                
+
+                      <!--Dang ky  -->      
+                        <a href="../pages/fromDangky.php" style="z-index: 100;"><button type="button" class="btn btn-primary">Đăng ký</button><span class="sr-only">(current)</span></a>
+                        <!--End dang ky  -->
+                            <!-- Dang nhap -->                    
                             <div class="dropdown ">
                               
                                <button id="onclick" class="btn btn-primary dropdown-toggle">
@@ -149,13 +189,14 @@
                                       } 
                                 }
                                ?>     
-                              
-                              </div>                           
+                              </div> 
+                             
+
+                                                 
                           </div>
 
-                    
 
-                        <a href="../pages/fromDangky.php"><button type="button" class="btn btn-primary">Đăng ký</button><span class="sr-only">(current)</span></a>
+                         
                    </div>
              
         </div>
@@ -224,7 +265,7 @@
                                    echo  "
                                         <div class='col-md-3 mb-3'>
                                         <div class='card' style='width: 100% '>
-                                        <img src='../public/upload/".$row["IMAGE"]."' class='card-img-top' alt='Card image cap' width='450px' height='350px' >
+                                        <img src='../public/image/".$row["IMAGE"]."' class='card-img-top' alt='Card image cap' width='450px' height='350px' >
                                           <div class='card-body'>
                                            <h5 class='card-title'>".$row["MONAN_TEN"]."&nbsp;&nbsp;&nbsp;&nbsp; Giá:".$row["MONAN_GIA"]."</h5> 
                                                <p class='card-text'>".$row["MONAN_DIENGIAI"]."</p>
@@ -254,6 +295,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../public/javascript/chatbot.js"></script>>
     <script type="text/javascript">
       $(document).ready(function(){
           $("#onclick").click(function(){

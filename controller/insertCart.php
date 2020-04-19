@@ -18,8 +18,8 @@
 
 	if(isset($_SESSION['username'])){
 	//session_destroy();
-	header("Location: viewCart.php");
+	header("Location: ../pages/viewCart.php");
 	}else{
-		header("Location: fromNLCS.php");
+		header("Location: ../pages/index.php");
 	}
 ?>

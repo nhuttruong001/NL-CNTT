@@ -17,11 +17,11 @@
 	if($query){
 
 		echo "Xoa thanh cong";
-		echo "<meta http-equiv='refresh' content='2;url=./xoaHome1.php'>";
+		echo "<meta http-equiv='refresh' content='2;url=../pages/xoaHome1.php'>";
 	}else
 	{
 		echo "Xoa that bai";
-		echo "<meta http-equiv='refresh' content='2;url=./xoaHome1.php'>";
+		echo "<meta http-equiv='refresh' content='2;url=../pages/xoaHome1.php'>";
 
 	}
 

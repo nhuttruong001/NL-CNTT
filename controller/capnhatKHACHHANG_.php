@@ -11,10 +11,10 @@
 
 	if($query){
 		echo "cập nhật thành công";
-		 echo "<meta http-equiv='refresh' content='2;url=./capnhatKHACHHANGHOME.php'>";
+		 echo "<meta http-equiv='refresh' content='2;url=../pages/capnhatKHACHHANGHOME.php'>";
 	}else
 	{
 		echo "cập nhật thất bại";
-			echo "<meta http-equiv='refresh' content='2;url=./formcapnhatKHACHHANG.php'>";
+			echo "<meta http-equiv='refresh' content='2;url=../pages/formcapnhatKHACHHANG.php'>";
 	}
 ?>

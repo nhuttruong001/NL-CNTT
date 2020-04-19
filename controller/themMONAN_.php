@@ -7,7 +7,7 @@
 
 	
 
-	$target_dir = "img1/";
+	$target_dir = "../public/image/";
 	$target_file = $target_dir . basename($_FILES["image"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -37,11 +37,11 @@
 
 	if($query){
 		echo "Thêm mới thành công!!!";
-		echo "<meta http-equiv='refresh' content='2;url=./themHome1.php'>";
+		echo "<meta http-equiv='refresh' content='2;url=../pages/themHome1.php'>";
 	}else
 	{
 		echo "thêm mới thất bại!!!";
-		echo "<meta http-equiv='refresh' content='2;url=./formthemMONAN.php'>";
+		echo "<meta http-equiv='refresh' content='2;url=../pages/formthemMONAN.php'>";
 	}
 
 

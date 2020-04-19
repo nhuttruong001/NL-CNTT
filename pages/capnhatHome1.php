@@ -5,14 +5,12 @@
 <html>
 <head>
   
-     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <script type="text/javascript" src="js/popper.min.js"></script>
-     <script type="text/javascript" src="js/jquery.js"></script>
-     <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.js"></script>
-     
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>   
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="generalFormat.css">
+        <link rel="stylesheet" href="../public/css/generalFormat.css">
 </head>
 <style type="text/css">
   .img{
@@ -27,20 +25,20 @@
  
   <div class="row" style="background-color: gray">
     <div class="col-sm-8" >
-      <img src="img/quantri.jpg" class="img">
+      <img src="../public/image/quantri.png" class="img">
     </div>
     <div class="col-sm-4"  >
-      <div class="dropdown ">
-        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position: absolute;left:150px; top:92px;">
-          <span><?php
-            echo $_SESSION['username'] ;?></span>
-        </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="fromNLCS.php">Về trang chủ</a>
-    <a class="dropdown-item" href="doiMATKHAU.php">Đổi mật khẩu</a>
-    <a class="dropdown-item" href="dangxuat.php">Đăng xuất</a>
+        <!--Dropdown user  -->
+      <div class="dropdown" style="position: absolute;left: 150px;top: 115px;">
+    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $_SESSION['username'] ;?>
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="../pages/index.php">Về trang chủ</a></li>
+      <li><a href="../controller/doiMATKHAU.php">Đổi mật khẩu</a></li>
+      <li><a href="../controller/dangxuat.php">Đăng xuất</a></li>
+    </ul>
   </div>
-</div>
+<!-- End Dropdown user -->
     </div>
   </div>
 </div>
@@ -125,7 +123,7 @@
        <table class="table table-bordered" style="border:1px solid black;">
    
             <?php 
-    include 'connectMySQL.php';
+    include '../controller/connectMySQL.php';
       
      $sql = "select monan_ma,monan.loai_ma,monan_ten,monan_gia,monan_diengiai,image
                       from monan,loai where
@@ -145,7 +143,7 @@
                       echo "<td>".$row['monan_gia']."</td>";
                       echo "<td>".$row['monan_diengiai']."</td>";
                       echo "<td>".$row['image']."</td>";
-                       echo "<TD> <a href='formcapnhatMONAN.php?monan_ma=".$row["monan_ma"]."'>cap nhat</a> </TD>";
+                       echo "<TD> <a href='../pages/formcapnhatMONAN.php?monan_ma=".$row["monan_ma"]."'>cap nhat</a> </TD>";
 
                                              echo "</tr>";
     }

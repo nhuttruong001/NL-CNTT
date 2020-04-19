@@ -11,9 +11,9 @@
 
 	 if($result){
 	 	echo "Thêm khách hàng thành công";
-	 	 echo "<meta http-equiv='refresh' content='2;url=./themKHACHHANGHOME.php'>";
+	 	 echo "<meta http-equiv='refresh' content='2;url=../pages/themKHACHHANGHOME.php'>";
 	 }else
 	 {
 	 	echo "Thêm khách hàng thất bại";
-	 	 echo "<meta http-equiv='refresh' content='2;url=./formthemKHACHHANG.php'>";
+	 	 echo "<meta http-equiv='refresh' content='2;url=../pages/formthemKHACHHANG.php'>";
 	 }

@@ -24,11 +24,11 @@
         if($result2){
           echo "Bạn đã mua hàng thành công!";
           echo "Hàng sẽ được giao cho bạn ngay!";
-          echo "<meta http-equiv='refresh' content='2;url=./fromNLCS.php'>";
+          echo "<meta http-equiv='refresh' content='2;url=../pages/index.php'>";
           unset($_SESSION["shoppingCart"]);
         }else{
           echo "Thanh toán thất bại";
-           echo "<meta http-equiv='refresh' content='2;url=./viewCart.php'>";
+           echo "<meta http-equiv='refresh' content='2;url=../pages/viewCart.php'>";
         }
 
   

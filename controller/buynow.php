@@ -16,5 +16,5 @@
 		$_SESSION["shoppingCart"] = array_merge($_SESSION["shoppingCart"],$_monan);
 	}
 	//session_destroy();
-	header("Location: viewCart.php");
+	header("Location: ../pages/viewCart.php");
 ?>
