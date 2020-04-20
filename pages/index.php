@@ -72,7 +72,7 @@
         <div id="getting">Nhấn Vào để Bắt Đầu</div>
         <div class="chatbot-head">
             <div class="avatar">
-                <span class="icon"><img src="{{asset('chatbot.png')}}" width="30" height="30" alt="Avatar Chatbot"></span>
+                <span class="icon"><img src="{{asset('../public/image/chatbot.png')}}" width="30" height="30" alt="Avatar Chatbot"></span>
                 <span class="name-chatbot">ChatBot News</span>
                 <span class="status"></span>
             </div>
@@ -102,7 +102,7 @@
         </div>
         <div class="chatbot-footer">
             <input type="text" placeholder="Type a message..." class="type-message">
-            <button class="submit-chatbot" ><img src="{{asset('send.png')}}" alt="Icon Send" srcset=""></button>
+            <button class="submit-chatbot" ><img src="{{asset('../public/image/send.png')}}" alt="Icon Send" srcset=""></button>
         </div>
     </div>
           <!-- END CHATBOT -->
@@ -126,7 +126,7 @@
 
                             <li class="nav-item">
                         <div class="w3-bar w3-light-grey w3-border"   >
-                          <form action="searchmonan.php" method="get">
+                          <form action="../controller/searchmonan.php" method="get">
                         <input type="text" name="search" class="w3-bar-item w3-input w3-white w3-mobile" style="width: 300px;" placeholder="Search..">
                         <button class="w3-bar-item w3-button w3-blue w3-mobile" name="submit">Go</button>
                       </form>

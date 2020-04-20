@@ -8,17 +8,12 @@
 <meta charset="utf-8">
 
 <head>
- <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
-    <script type="text/javascript" src="js/popper.min.js"></script>
-     <script type="text/javascript" src="js/jquery.js"></script>
-     <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.js"></script>
-     
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="../public/css/generalFormat.css">
-
+        <link rel="stylesheet" href="generalFormat.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" type="text/css" href="../public/css/chatbot.css">
 
     <style>
         .custom{
@@ -71,7 +66,7 @@
     <header style="border-bottom: 1px solid #ffa500">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light nhut-truong-navibar d-flex flex-row-reverse">
-                <a class="navbar-brand" href="#"><img src="img/logo.png" class="nhut-truong-img"></a>
+                <a class="navbar-brand" href="#"><img src="../public/image/logo.png" class="nhut-truong-img"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -90,7 +85,7 @@
 
                             <li class="nav-item">
                         <div class="w3-bar w3-light-grey w3-border"   >
-                          <form action="searchmonan.php" method="get">
+                          <form action="../controller/searchmonan.php" method="get">
                         <input type="text" name="search" class="w3-bar-item w3-input w3-white w3-mobile" style="width: 300px;" placeholder="Search..">
                         <button class="w3-bar-item w3-button w3-blue w3-mobile" name="submit">Go</button>
                       </form>
@@ -217,7 +212,7 @@
         }
 ?>
 
-<?php include "footer.php"; ?>
+<?php include "../layouts/footer.php"; ?>
 
 </body>
 </html>
