@@ -50,7 +50,7 @@
 						$sql = "select *from monan where MONAN_MA ='".$x."'";
 						$row = $conn->query($sql)->fetch_assoc();
 							if(isset($_SESSION['username'])){
-						echo '<tr><td>'.$stt.'</td> <td><img src=../pubic/image/'.$row["IMAGE"].' width=15%;></td> <td>'.$row["MONAN_TEN"].'</td><td>'.$row["MONAN_GIA"].'</td><td>'.$_SESSION["shoppingCart"][$x].'</td><td> <TD>  <a href="../controller/xoamonantrongSHOPPINGCART.php?maso='.$row["MONAN_MA"].'" class="btn btn-warning">Xóa</a>  </TD></tr>  ';
+						echo '<tr><td>'.$stt.'</td> <td><img src=../public/image/'.$row["IMAGE"].' width=15%;></td> <td>'.$row["MONAN_TEN"].'</td><td>'.$row["MONAN_GIA"].'</td><td>'.$_SESSION["shoppingCart"][$x].'</td><td> <TD>  <a href="../controller/xoamonantrongSHOPPINGCART.php?maso='.$row["MONAN_MA"].'" class="btn btn-warning">Xóa</a>  </TD></tr>  ';
 						
 						
 						$stt = $stt+1;
@@ -86,16 +86,5 @@
 
 
 </body>
- <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<meta charset="utf-8">
-	 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-    	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
-    	<script type="text/javascript" src="js/popper.min.js"></script>
-     	<script type="text/javascript" src="js/jquery.js"></script>
-     	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.js"></script>
-     	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
-        <link rel="stylesheet" href="../public/css/generalFormat.css"> -->
+
 </html>

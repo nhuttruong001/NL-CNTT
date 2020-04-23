@@ -64,10 +64,10 @@ h2{
     <input type="text" name="kh_id" required="">
 
    <label>Mật khẩu</label>
-   	<input type="text" id="password" name="kh_matkhau" required="">
+   	<input type="password" id="password" name="kh_matkhau" required="">
 
    	<label>Nhập lại mật khẩu</label>
-   	<input type="text" id="confirmed" onchange="confirmed_pass()"  name="nlpw" required="">
+   	<input type="password" id="confirmed" onchange="confirmed_pass()"  name="nlpw" required="">
     <span id="check"></span>
 <br>
 

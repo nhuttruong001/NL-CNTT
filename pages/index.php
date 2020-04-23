@@ -11,11 +11,17 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
+     <link rel="stylesheet" type="text/css" href="css/reset.css">
+   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
         <link rel="stylesheet" href="generalFormat.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" type="text/css" href="../public/css/chatbot.css">
-
+        <link rel="stylesheet" type="text/css" href="../public/css/front-end.css">
 
     <style>
         .custom{
@@ -68,26 +74,40 @@
     <header style="border-bottom: 1px solid #ffa500">
         <div class="container">
           <!-- CHATBOT -->
-          <div class="chatbot-circle"><i class="fas fa-sms"></i></div>
-    <div class="chatbot-box">
-       
-        <div class="chatbot-head">
-            <div class="avatar">
-                <span class="icon"><img src="../public/image/chatbot.png" width="30" height="30" alt="Avatar Chatbot"></span>
-                <span class="name-chatbot">ChatBot</span>
-                <span class="status"></span>
+          <div class="chatbot-circle" id="chatbot-circle" style="display:block" ><i class="fas fa-sms"></i></div>
+        <div class="chatbot-box" id="mychatbot" style="display:block" >
+            <div class="chatbot-head " >
+                <div class="avatar">
+                    <span class="icon"><img src="../public/image/chatbot.png" width="30" height="30" alt="Avatar Chatbot"></span>
+                    <span class="name-chatbot">ChatBot</span>
+                    <span class="status"></span>
+                </div>
+                <span class="close"><i class="fas fa-times"></i></span>
             </div>
-            <span class="close"><i class="fas fa-times"></i></span>
+            <div class="chatbot-body " id="chat-body">
+                <div class="message-u">
+                    <div class="user_avt">
+                      <img src="../public/image/chatbot_avt.jpg" width="50px">
+                    </div>
+                    <p class="message">
+                      hello! hello! hello! hello!hello! hello! hello! hello! hello!
+                    </p> 
+                </div>
+                <div class="message-bot">
+                    <div class="user_avt">
+                        <img src="../public/image/chatbot_avt_bot.png" width="50px">
+                    </div>
+                    <p class="message">
+                        hello
+                    </p> 
+                </div>
+    
+         </div>
+            <div class="chatbot-footer">
+                <input id="user_type_msg" type="text" placeholder="Type a message..." class="type-message">
+                <button class="submit-chatbot" id="submit-chatbot" ><img src="../public/image/send.png" alt="Icon Send"  width="50" height="50"></button>
+            </div>
         </div>
-        <div class="chatbot-body" id="chat-body">
-            <div style="margin-top:15px;"></div>
-            
-        </div>
-        <div class="chatbot-footer">
-            <input type="text" placeholder="Type a message..." class="type-message">
-            <button class="submit-chatbot" id="submit-chatbot" ><img src="../public/image/send.png" alt="Icon Send"  width="50" height="50"></button>
-        </div>
-    </div>
           <!-- END CHATBOT -->
             <nav class="navbar navbar-expand-lg navbar-light nhut-truong-navibar d-flex flex-row-reverse">
                 <a class="navbar-brand" href="#"><img src="../public/image/logo.png" class="nhut-truong-img"></a>
@@ -130,48 +150,68 @@
 
             </nav>
 
-                    
+          
                                    
-                    <div class="nav-item" style="position: fixed;z-index:100; right: 0px; top: 2px;">   
+                    <!-- <div class="nav-item" style="position: fixed;z-index:100; right: 0px; top: 2px;">  -->  
 
                       <!--Dang ky  -->      
-                        <a href="../pages/fromDangky.php" style="z-index: 100;"><button type="button" class="btn btn-primary">Đăng ký</button><span class="sr-only">(current)</span></a>
+                        <a href="../pages/fromDangky.php" style="z-index: 100;"><button type="button" class="btn btn-primary dangky">Đăng ký</button><span class="sr-only">(current)</span></a>
                         <!--End dang ky  -->
                             <!-- Dang nhap -->                    
-                            <div class="dropdown ">
+                            <!-- <div class="dropdown ">
                               
-                               <button id="onclick" class="btn btn-primary dropdown-toggle">
-                              
+                               <button id="onclick" class="btn btn-primary dropdown-toggle"> -->
+                             
 
-                                 <span>
                                 
-                                 <?php 
-                                    if(isset($_SESSION["username"])){
-                                      echo $_SESSION["username"];
-                                    }else{
+                                
+                               
+                               <?php   if(isset($_SESSION["username"]) && ($_SESSION['quyen'] == 1)){ ?>
+                                      
+                                      <div class="dropdown" style="position: absolute;right: 10px;top: 5px;">
+                                          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><?php echo $_SESSION["username"]; ?>
+                                            <span class="caret"></span>
+                                          </button>
+                                          <ul class="dropdown-menu user_menu">
+                                            <li><a href="../pages/homeQuantri.php">Quản trị</a></li>
+                                            <li><a href="../controller/doiMATKHAU.php">Đổi mật khẩu</a></li>
+                                            <li><a href="../controller/dangxuat.php">Đăng xuất</a></li>
+                                          </ul>
+                                      </div>
+                                 <?php   } else if (isset($_SESSION["username"]) && ($_SESSION['quyen'] == 0)){ ?>
+                                      <div class="dropdown" style="position: absolute;right: 10px;top: 5px;">
+                                      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> <?php echo $_SESSION["username"] ?>
+                                        <span class="caret"></span>
+                                      </button>
+                                        <ul class="dropdown-menu user_menu">
+                                          <li><a href="../controller/doiMATKHAU.php">Đổi mật khẩu</a></li>
+                                          <li><a href="../controller/dangxuat.php">Đăng xuất</a></li>
+                                        </ul>
+                                      </div>
+                               <?php   } else{ ?>
+                                        <a href="../controller/login1.php">
+                                          <button type="button" class="btn btn-primary dangnhap">Đăng nhập</button>
+                                          <span class="sr-only">(current)</span>
+                                        </a> 
+                                 <?php   } ?> 
+                                 <!--   <div id="toggle" style="display:none; ">
 
-                                      echo ' <a href="../controller/login1.php"><button type="button" class="btn btn-primary">Đăng nhập</button><span class="sr-only">(current)</span></a> ';
-
-                                    }
-
-                                  ?>
-
-                                </span> 
-
-                                  </button>
-
-                              <div id="toggle" style="display:none; ">
-
-                                <a class="dropdown-item" href="../controller/login1.php">Đăng nhập</a>
+                              
                                   <a class="dropdown-item" href="../controller/doiMATKHAU.php">Đổi mật khẩu</a>  
-                                <a class="dropdown-item" href="../controller/dangxuat.php">Đăng xuất</a>  
-                             <?php 
+                                <a class="dropdown-item" href="../controller/dangxuat.php">Đăng xuất</a>   -->
+
+                                
+
+                                 <!--  </button> -->
+
+                             
+                             <!-- <?php 
                                 if(isset($_SESSION['quyen'])){
                                      if($_SESSION['quyen']==1) {
                                         echo '<a href="../pages/homeQuantri.php" class="dropdown-item">Quản trị</a>'; 
                                       } 
                                 }
-                               ?>     
+                               ?>      -->
                               </div> 
                              
 
@@ -252,8 +292,8 @@
                                           <div class='card-body'>
                                            <h5 class='card-title'>".$row["MONAN_TEN"]."&nbsp;&nbsp;&nbsp;&nbsp; Giá:".$row["MONAN_GIA"]."</h5> 
                                                <p class='card-text'>".$row["MONAN_DIENGIAI"]."</p>
-                                               <a href='insertCart.php?maso=".$row["MONAN_MA"]."' class='btn btn-primary' onclick='testwarning()'>Thêm vào giỏ</a> 
-                                               <a href='buynow.php?maso=".$row["MONAN_MA"]."' class='btn btn-primary ' onclick='testwarning()'>Mua ngay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>          
+                                               <a href='../controller/insertCart.php?maso=".$row["MONAN_MA"]."' class='btn btn-primary' >Thêm vào giỏ</a> 
+                                               <a href='../controller/buynow.php?maso=".$row["MONAN_MA"]."' class='btn btn-primary ' onclick='testwarning()'>Mua ngay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>          
                                           </div>
                                           </div>
                                         </div> ";
@@ -280,8 +320,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
-    <!-- <script src="../public/javascript/chatbot.js"></script> -->
+    <script src="../public/javascript/chatbot.js"></script>
+    
     <script>
+
+
       $(document).ready(function(){
 
         var socket = io.connect("http://localhost:5000/");
@@ -299,12 +342,32 @@
               $("#submit-chatbot").click(function(){
                   var message = $(".type-message").val();
                   socket.emit("Client-Send-Message", {data:message});
-                  $("#chat-body").append("<div>"+message+"</div>");
+                  $("#chat-body").append(`
+                    <div class="message-u">
+                      <div class="user_avt">
+                          <img src="../public/image/chatbot_avt.jpg" width="50px">
+                      </div>
+                      <p class="message">
+                        ${message}
+                      </p>
+                  </div>
+                  `);
                   $(".type-message").val("");
+                  srollToBottom();
                 });
 
               socket.on("message", function(data){
-                $("#chat-body").append("<div>"+data+"</div>");
+                $("#chat-body").append(`
+                  <div class="message-bot">
+                      <div class="user_avt">
+                          <img src="../public/image/chatbot_avt.jpg" width="50px">
+                      </div>
+                      <p class="message">
+                          ${data}
+                      </p>
+                  </div>
+                `);
+                srollToBottom();
               });
 
               $(".close").click(function(){

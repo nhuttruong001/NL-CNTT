@@ -24,6 +24,7 @@
 
 	<link rel="stylesheet" type="text/css" href="../template/Login_v11/css/util.css">
 	<link rel="stylesheet" type="text/css" href="../template/Login_v11/css/main.css">
+	<script src="https://kit.fontawesome.com/7d670cfbb0.js"></script>
 
 </head>
 <body>
@@ -43,7 +44,7 @@
 						<input class="input100" type="text" name="id" value="<?php echo $_SESSION['username']; ?>" placeholder="Tai Khoan">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<span class="lnr lnr-envelope"></span>
+						<i class="fas fa-user mt-4"></i>	
 						</span>
 					</div>
 					<h5>Nhập lại mật khẩu cũ</h5>
@@ -51,7 +52,7 @@
 						<input class="input100" type="text" name="pass" placeholder="Password cu" required="">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<span class="lnr lnr-lock"></span>
+						<i class="fas fa-lock"></i>	
 						</span>
 					</div>
 					<h5>Nhập mật khẩu mới</h5>
@@ -59,7 +60,7 @@
 						<input class="input100" type="text" name="pass1"  placeholder="Password moi" required="">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<span class="lnr lnr-lock"></span>
+						<i class="fas fa-lock"></i>	
 						</span>
 					</div>
 					<h5>Nhập lại mật khẩu mới</h5>
@@ -67,7 +68,7 @@
 						<input class="input100" type="text" name="pass2" placeholder="Nhap lai Password moi" required="">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
-							<span class="lnr lnr-lock"></span>
+						<i class="fas fa-lock"></i>	
 						</span>
 					</div>
 					

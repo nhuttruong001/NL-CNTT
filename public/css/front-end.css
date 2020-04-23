@@ -1,0 +1,33 @@
+.dangky{
+	position :absolute;
+	right : 112px;
+	top : 5px;
+}
+
+.dangnhap{
+	position :absolute;
+	right : 5px;
+	top : 5px;
+}
+
+
+.btn-dropdown{
+	
+}
+
+.custom-dropdown{
+	position: absolute;
+    right: 91px;
+    top: 5px;
+    width: 20px;
+}
+
+.name-acc{
+	text-transform: capitalize;
+	font-size : 14px;
+}
+
+
+.user_menu li {
+	padding: 8px;
+}
