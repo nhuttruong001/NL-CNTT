@@ -10,6 +10,7 @@
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
         <link rel="stylesheet" href="generalFormat.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -69,40 +70,22 @@
           <!-- CHATBOT -->
           <div class="chatbot-circle"><i class="fas fa-sms"></i></div>
     <div class="chatbot-box">
-        <div id="getting">Nhấn Vào để Bắt Đầu</div>
+       
         <div class="chatbot-head">
             <div class="avatar">
-                <span class="icon"><img src="{{asset('../public/image/chatbot.png')}}" width="30" height="30" alt="Avatar Chatbot"></span>
-                <span class="name-chatbot">ChatBot News</span>
+                <span class="icon"><img src="../public/image/chatbot.png" width="30" height="30" alt="Avatar Chatbot"></span>
+                <span class="name-chatbot">ChatBot</span>
                 <span class="status"></span>
             </div>
             <span class="close"><i class="fas fa-times"></i></span>
         </div>
         <div class="chatbot-body" id="chat-body">
             <div style="margin-top:15px;"></div>
-            <!-- {{-- Section Messages --}}
-            {{-- <div class="res-bot">
-                <div class="block-icon">
-                    <div class="res-avatar"><i class="fas fa-comment-alt"></i></div>
-                </div>
-                <div class="block-messages" style="35%">
-                    <div class="res-messages"><span>Nguyen Nhut Truong</span> </div>
-                </div>
-            </div>
-            <div style="clear:both;"></div>
-            <div class="res-u">
-                <div class="block-messages-u">
-                    <div class="res-messages-u"><span>Nguyen Nhut Truong</span> </div>
-                </div>
-            </div>
-            <div style="clear:both;" class="bottom"></div> --}}
-            {{-- =================================================== --}}
-
-            {{-- End Section Messages --}} -->
+            
         </div>
         <div class="chatbot-footer">
             <input type="text" placeholder="Type a message..." class="type-message">
-            <button class="submit-chatbot" ><img src="{{asset('../public/image/send.png')}}" alt="Icon Send" srcset=""></button>
+            <button class="submit-chatbot" id="submit-chatbot" ><img src="../public/image/send.png" alt="Icon Send"  width="50" height="50"></button>
         </div>
     </div>
           <!-- END CHATBOT -->
@@ -292,16 +275,49 @@
 
     <?php include "../layouts/footer.php"; ?>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../public/javascript/chatbot.js"></script>>
-    <script type="text/javascript">
+    <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+    <!-- <script src="../public/javascript/chatbot.js"></script> -->
+    <script>
       $(document).ready(function(){
-          $("#onclick").click(function(){
-              $("#toggle").toggle();
-          });
-      });
+
+        var socket = io.connect("http://localhost:5000/");
+
+        socket.on("Server-Send-Message", function(data){
+            console.log(data);
+        });
+
+              $("#onclick").click(function(){
+                $("#toggle").toggle();
+            });
+
+
+              
+              $("#submit-chatbot").click(function(){
+                  var message = $(".type-message").val();
+                  socket.emit("Client-Send-Message", {data:message});
+                  $("#chat-body").append("<div>"+message+"</div>");
+                  $(".type-message").val("");
+                });
+
+              socket.on("message", function(data){
+                $("#chat-body").append("<div>"+data+"</div>");
+              });
+
+              $(".close").click(function(){
+                  $(".chatbot-box").css("display","none");
+                  $('.chatbot-circle').css('display','block');
+                  $("#getting").css({"display":"block"});
+              });
+
+              $('.chatbot-circle').click(function(){
+                  $('.chatbot-circle').css('display','none');
+                  $(".chatbot-box").css("display","block");
+              });
+  });
     </script>
 
         
