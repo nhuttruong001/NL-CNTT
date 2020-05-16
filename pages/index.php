@@ -75,7 +75,7 @@
         <div class="container">
           <!-- CHATBOT -->
           <div class="chatbot-circle" id="chatbot-circle" style="display:block" ><i class="fas fa-sms"></i></div>
-        <div class="chatbot-box" id="mychatbot" style="display:block" >
+        <div class="chatbot-box" id="mychatbot" style="display:none" >
             <div class="chatbot-head " >
                 <div class="avatar">
                     <span class="icon"><img src="../public/image/chatbot.png" width="30" height="30" alt="Avatar Chatbot"></span>
@@ -90,7 +90,7 @@
                       <img src="../public/image/chatbot_avt.jpg" width="50px">
                     </div>
                     <p class="message">
-                      hello! hello! hello! hello!hello! hello! hello! hello! hello!
+                      Xin chào bạn đến với cửa hàng đồ ăn vặt của chúng tôi!!!!
                     </p> 
                 </div>
                 <div class="message-bot">
