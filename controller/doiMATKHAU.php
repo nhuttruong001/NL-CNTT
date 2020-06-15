@@ -34,7 +34,7 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
-				<form class="login100-form validate-form" action="#" method="POST" enctype="multipart/form-data">
+				<form class="login100-form validate-form" action="" method="POST" enctype="multipart/form-data">
 					<span class="login100-form-title p-b-55">
 						ĐỔI MẬT KHẨU
 					</span>
@@ -95,29 +95,41 @@
 
 		if(isset($_POST["submit"])){
 
-			$sql = "update Admin set ad_matkhau='".$_POST['pass1']."' where ad_id='".$_POST['id']."'";
+			$err = [];
 
-			$sql1 = "update khachhang set kh_matkhau='".$_POST['pass1']."' where kh_id='".$_POST['id']."'";
+			$loaiUser = 0; // 0 la sai mat khau hoac username
+			$sql_check = "SELECT * FROM Admin where ad_id='".$_POST['id']."' and ad_matkhau='".$_POST['pass']."'";
+			$is_admin = $conn->query($sql_check);
+			if(mysqli_num_rows($is_admin)>0) $loaiUser =1; // 1 la admin
 
-			$username1 = $_POST['id'];
+			$sql_check = "SELECT * FROM Khachhang where kh_id='".$_POST['id']."' and kh_matkhau='".$_POST['pass']."'";
+			$is_customer = $conn->query($sql_check);
+			if(mysqli_num_rows($is_customer)>0) $loaiUser =2; // 2 la customer
 
-			$password1 = $_POST['pass1'];
+			if($loaiUser ==0) array_push($err, "Sai username hoac password");
 
-		 	$result = $conn->query($sql);
-
-		    $result1 = $conn->query($sql1);
-
-		    if($result->num_rows>0){
-		    	$_SESSION['usernamead'] = $username1;
-		    	$_SESSION['password'] = $password1;
-		    	echo "doi mat khau thanhh cong";
-		    	echo "<meta http-equiv='refresh' content='1;url=fromNLCS.php'>";
-			}else{
-		    	$_SESSION['usernamekh'] = $username1;
-		    	$_SESSION['password'] = $password1;
-		    	echo "doi mat khau thanhh cong";
-		    	echo "<meta http-equiv='refresh' content='1;url=fromNLCS.php'>";				
+			if($_POST["pass1"] != $_POST["pass2"]){
+				array_push($err, "Mat khau khong khop");
 			}
+
+			if (count($err)>0){
+				foreach($err as $e){
+					echo $e;
+				}
+			} else{
+				if($loaiUser==1){
+					$sql = "update Admin set ad_matkhau='".$_POST['pass1']."' where ad_id='".$_POST['id']."'";
+					$result = $conn->query($sql);
+					echo 'Doi mat khau admin thanh cong ';
+					echo "<meta http-equiv='refresh' content='1;url=../controller/login1.php'>";
+				} else {
+					$sql1 = "update khachhang set kh_matkhau='".$_POST['pass1']."' where kh_id='".$_POST['id']."'";
+					$result1 = $conn->query($sql1);
+					echo 'Doi mat khau khach hang thanhcong';
+					echo "<meta http-equiv='refresh' content='1;url=../controller/login1.php'>";
+				}
+			}		
+
 		}
 
 		 mysqli_close($conn);

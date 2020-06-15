@@ -62,13 +62,13 @@ h2{
     
     <label for="loai" >Loại</label>
     <select id="loai" name="loai" required="">
-      <option value="B" >Nước uống</option>
-      <option value="A" >Đồ khô</option>
-      <option value="C" >Sinh tố</option>
-      <option value="D" >Trà sữa</option>
+      <option value="A" >Trà sữa</option>
+      <option value="B" >Nước Ngọt</option>
+      <option value="C" >Sinh Tố</option>
+      <option value="D" >Khô bò</option>
     </select>
 
-    <label>Têm món ăn</label>
+    <label>Tên món ăn</label>
     <input type="text" name="tenmonan" required="">
 
 

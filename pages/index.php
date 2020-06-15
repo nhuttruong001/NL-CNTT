@@ -22,7 +22,8 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="stylesheet" type="text/css" href="../public/css/chatbot.css">
         <link rel="stylesheet" type="text/css" href="../public/css/front-end.css">
-
+        <link rel="stylesheet" type="text/css" href="../public/css/addbuy.css">
+        <link rel="stylesheet" type="text/css" href="../public/css/insert-cart.css">
     <style>
         .custom{
 
@@ -85,20 +86,20 @@
                 <span class="close"><i class="fas fa-times"></i></span>
             </div>
             <div class="chatbot-body " id="chat-body">
-                <div class="message-u">
+                <!-- <div class="message-u">
                     <div class="user_avt">
                       <img src="../public/image/chatbot_avt.jpg" width="50px">
                     </div>
                     <p class="message">
                       Xin chào bạn đến với cửa hàng đồ ăn vặt của chúng tôi!!!!
                     </p> 
-                </div>
+                </div> -->
                 <div class="message-bot">
                     <div class="user_avt">
                         <img src="../public/image/chatbot_avt_bot.png" width="50px">
                     </div>
                     <p class="message">
-                        hello
+                    Xin chào bạn đến với cửa hàng đồ ăn vặt của chúng tôi!!!!
                     </p> 
                 </div>
     
@@ -287,13 +288,14 @@
                   
                                    echo  "
                                         <div class='col-md-3 mb-3'>
-                                        <div class='card' style='width: 100% '>
+                                        <div class='card' style='width: 100%; height:100%'>
                                         <img src='../public/image/".$row["IMAGE"]."' class='card-img-top' alt='Card image cap' width='450px' height='350px' >
                                           <div class='card-body'>
                                            <h5 class='card-title'>".$row["MONAN_TEN"]."&nbsp;&nbsp;&nbsp;&nbsp; Giá:".$row["MONAN_GIA"]."</h5> 
                                                <p class='card-text'>".$row["MONAN_DIENGIAI"]."</p>
-                                               <a href='../controller/insertCart.php?maso=".$row["MONAN_MA"]."' class='btn btn-primary' >Thêm vào giỏ</a> 
-                                               <a href='../controller/buynow.php?maso=".$row["MONAN_MA"]."' class='btn btn-primary ' onclick='testwarning()'>Mua ngay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>          
+                                               <br> <br>
+                                               <a href='../controller/insertCart.php?maso=".$row["MONAN_MA"]."' class='btn btn-primary custom-insert-cart ' >Thêm vào giỏ</a> 
+                                               <a href='../controller/buynow.php?maso=".$row["MONAN_MA"]."' class='btn btn-primary custom-cart'  onclick='testwarning()'>Mua ngay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>          
                                           </div>
                                           </div>
                                         </div> ";
@@ -360,7 +362,7 @@
                 $("#chat-body").append(`
                   <div class="message-bot">
                       <div class="user_avt">
-                          <img src="../public/image/chatbot_avt.jpg" width="50px">
+                          <img src="../public/image/chatbot_avt_bot.png" width="50px">
                       </div>
                       <p class="message">
                           ${data}

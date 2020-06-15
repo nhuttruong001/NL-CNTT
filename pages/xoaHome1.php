@@ -153,7 +153,7 @@
                       echo "<td>".$row['monan_gia']."</td>";
                       echo "<td>".$row['monan_diengiai']."</td>";
                       echo "<td>".$row['image']."</td>";
-                      echo "<TD> <a href='xoaMONAN_.php?monan_ma=".$row["monan_ma"]."'>xoa</a> </TD>";
+                      echo "<TD> <a href='../controller/xoaMONAN_.php?monan_ma=".$row["monan_ma"]."'>xoa</a> </TD>";
                                              echo "</tr>";
     }
 

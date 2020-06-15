@@ -16,12 +16,12 @@
 
 	if($query){
 
-		echo "Xoa thanh cong";
-		echo "<meta http-equiv='refresh' content='2;url=../pages/xoaHome1.php'>";
+		echo "Xóa món ăn thành công";
+		echo "<meta http-equiv = 'refresh' content = '1; url =../pages/xoaHome1.php' />";
 	}else
 	{
-		echo "Xoa that bai";
-		echo "<meta http-equiv='refresh' content='2;url=../pages/xoaHome1.php'>";
+		echo "Xóa món ăn thất bại";
+		echo "<meta http-equiv = 'refresh' content = '1; url =../pages/xoaHome1.php' />";
 
 	}
 

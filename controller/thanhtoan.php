@@ -6,7 +6,7 @@
 
   include "connectMYSQL.php";
 
-  $sql = "insert into donhang(kh_ma,ad_ma,dh_ngay,dh_tongtien) 
+  $sql = "insert into donhang(kh_ma,ad_ma,donhang_ngay,dh_tongtien) 
         values('".$_SESSION['kh_ma']."','1',CURDATE(),0)";
         mysqli_query($conn,$sql);
           foreach($_SESSION['shoppingCart'] as $x => $values){

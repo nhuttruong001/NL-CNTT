@@ -154,7 +154,7 @@
                       echo "<td>".$row['kh_gioitinh']."</td>";
                       echo "<td>".$row['kh_diachi']."</td>";
                       echo "<td>".$row['kh_sdt']."</td>";
-                       echo "<TD> <a href='xoaKHACHHANG_.php?kh_ma=".$row["kh_ma"]."'>xoa</a> </TD>";
+                       echo "<TD> <a href='../controller/xoaKHACHHANG_.php?kh_ma=".$row["kh_ma"]."'>xoa</a> </TD>";
                                              echo "</tr>";
     }
 

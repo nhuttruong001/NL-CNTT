@@ -126,7 +126,7 @@
             <?php 
     include '../controller/connectMySQL.php';
       
-     $sql = "select donhang.dh_ma,donhang.kh_ma,donhang.ad_ma,donhang.dh_ngay,donhang.dh_tongtien
+     $sql = "select donhang.dh_ma,donhang.kh_ma,donhang.ad_ma,donhang.donhang_ngay,donhang.dh_tongtien
                       from donhang where YEAR(CURDATE()); ";
 
     $result = mysqli_query($conn,$sql);
@@ -140,7 +140,7 @@
                       echo "<td>".$row['dh_ma']."</td>";
                       echo "<td>".$row['kh_ma']."</td>";
                       echo "<td>".$row['ad_ma']."</td>";
-                      echo "<td>".$row['dh_ngay']."</td>";
+                      echo "<td>".$row['donhang_ngay']."</td>";
                       echo "<td>".$row['dh_tongtien']."</td>";
                      //  echo "<TD> <a href='formcapnhatMONAN.php?monan_ma=".$row["monan_ma"]."'>cap nhat</a> </TD>";
 
